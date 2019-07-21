@@ -1,17 +1,9 @@
 package sample.UI;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputControl;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.VBox;
-import org.w3c.dom.Text;
 
-import java.awt.event.KeyEvent;
 import java.io.PrintWriter;
 
 public class ChatWindow {

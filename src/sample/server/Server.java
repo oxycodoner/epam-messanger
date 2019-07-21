@@ -6,18 +6,18 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Server {
+class Server {
 
     private int port;
     private List<Session> clients;
     private ServerSocket server;
 
-    public Server(int port){
+    Server(int port){
         this.port = port;
         clients = new ArrayList<>();
     }
 
-    public void start(){
+    void start(){
         try {
 
             server = new ServerSocket(port);
@@ -37,7 +37,7 @@ public class Server {
         }
     }
 
-    public void updateClientsList() {
+    void updateClientsList() {
         clients.forEach(c -> {
             if(c.online()) {
                 c.send("clientList",c.getUserName(),"");
@@ -45,7 +45,7 @@ public class Server {
         });
     }
 
-    public void sendToAllClients(String clientName, String msg){
+    void sendToAllClients(String clientName, String msg){
         clients.forEach(c -> c.send("message",clientName, msg));
     }
 }

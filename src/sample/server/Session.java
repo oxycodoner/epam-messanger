@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Session {
+class Session {
 
     private Scanner in;
     private PrintWriter out;
@@ -18,21 +18,21 @@ public class Session {
     private String dtime;
     private SimpleDateFormat dt1;
 
-    public Session(Socket client, Server server) throws IOException {
+    Session(Socket client, Server server) throws IOException {
         this.server = server;
         this.client = client;
         in = new Scanner(client.getInputStream());
         out = new PrintWriter(client.getOutputStream(),true);
     }
 
-    public void start(){
+    void start(){
         while(in.hasNextLine()){
             server.sendToAllClients(nickName,in.nextLine());
         }
         server.sendToAllClients(nickName,  " has disconnected");
     }
 
-    public void send(String key, String clientName, String msg) {
+    void send(String key, String clientName, String msg) {
 
         time = new Date(); // текущая дата
         dt1 = new SimpleDateFormat("HH:mm:ss"); // берем только время до секунд
@@ -42,7 +42,7 @@ public class Session {
 
     }
 
-    public String getUserName() {
+    String getUserName() {
         if(in.hasNext()) {
             return nickName = in.nextLine();
         } else {
@@ -50,7 +50,7 @@ public class Session {
         }
     }
 
-    public boolean online() {
+    boolean online() {
         return !client.isClosed();
     }
 }
