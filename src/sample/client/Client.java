@@ -62,7 +62,7 @@ public class Client extends Application {
                 chatWindow.getUserListField()
         );
 
-        chatScene = new Scene(chatGroup,500,450,Color.BISQUE);
+        chatScene = new Scene(chatGroup,500,450,Color.PINK);
         mainStage.setScene(chatScene);
     }
 
@@ -81,11 +81,11 @@ public class Client extends Application {
                 registrationBtn
         );
 
-        regScene = new Scene(regGroup,500,450,Color.BISQUE);
+        regScene = new Scene(regGroup,500,450,Color.PINK);
     }
 
     private void initRegistrationButton() {
-        registrationBtn = new Button("Registration");
+        registrationBtn = new Button("Enter chat");
         registrationBtn.setTranslateY(300);
         registrationBtn.setTranslateX(220);
         registrationBtn.setOnAction(actionEvent -> {
